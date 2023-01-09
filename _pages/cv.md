@@ -11,7 +11,7 @@ redirect_from:
 
 Education
 ======
-* B.S. in Shanghai, ShanghaiTech University, 2025 (expected)
+* B.S. in ShanghaiTech University, China, 2025 (expected)
 
 Work experience
 ======
