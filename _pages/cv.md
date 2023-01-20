@@ -11,7 +11,7 @@ redirect_from:
 
 Education
 ======
-* B.S. in ShanghaiTech University, China, 2025 (expected)
+* B.Eng. at ShanghaiTech University, China, 2021-present
 
 Work experience
 ======
