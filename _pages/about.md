@@ -18,10 +18,10 @@ Hi! I am a junior-year undergraduate in Computer Science at ShanghaiTech Univers
 <img src="../images/DSC02997-min.png" alt="DSC02997" style="zoom:50%;" /> 
 
 ### Sichuan, China
-<img src="../images/DSC01420-min.png" alt="DSC01420" style="zoom:50%;" /> 
+<img src="../images/DSC01420-min.png" alt="DSC01420" style="zoom:25%;" /> 
 
 ### Sichuan, China
-<img src="../images/DSC03186-min.png" alt="DSC03186" style="zoom:50%;" /> 
+<img src="../images/DSC03186-min.png" alt="DSC03186" style="zoom:25%;" /> 
 
 ### Shanghai, China
 <img src="../images/DSCF5281-min.png" alt="DSCF5281" style="zoom:50%;" />
