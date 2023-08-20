@@ -21,20 +21,11 @@ My research interest includes computational imaging, single photon imaging, comp
 ### Sichuan, China
 <img src="../images/DSC02997-min.png" alt="DSC02997" style="zoom:50%;" /> 
 
-### Sichuan, China
-<img src="../images/DSC01420-min.png" alt="DSC01420" style="zoom:25%;" /> 
-
-### Sichuan, China
-<img src="../images/DSC03186-min.png" alt="DSC03186" style="zoom:25%;" /> 
-
 ### Shanghai, China
 <img src="../images/DSCF5281-min.png" alt="DSCF5281" style="zoom:50%;" />
 
 ### Shanghai, China
 <img src="../images/DSC00683-min.png" alt="DSC00683" style="zoom:50%;" />
-
-### Shanghai, China
-<img src="../images/_MG_3125-min.png" alt="MG3125" style="zoom:50%;" />
 
 ### ShanghaiTech University
 <img src="../images/22-min.png" alt="22" style="zoom:50%;" />
