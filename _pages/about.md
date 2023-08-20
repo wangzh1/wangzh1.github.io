@@ -30,7 +30,11 @@ My research interest includes computational imaging, single photon imaging, comp
 ### ShanghaiTech University
 <img src="../images/22-min.png" alt="22" style="zoom:50%;" />
 
-### Fujian, China, My hometown
+### Ningde, China
 <img src="../images/_MG_4897-min.png" alt="MG4897" style="zoom:50%;" />
 
+### Xiamen, China
+<img src="../images/000054.jpg" alt="000054" style="zoom:50%;" />
 
+### Ningde, China
+<img src="../images/_MG_4601.jpg" alt="4601" style="zoom:50%;" />
