@@ -30,9 +30,6 @@ My research interest includes deep learning, computer vision, computational imag
 ### Puerto Rico
 <img src="../images/pr1.jpg" alt="pr1" style="zoom:50%;" /> 
 
-### Milwaukee, WI
-<img src="../images/milwaukee.jpg" alt="milwaukee" style="zoom:50%;" /> 
-
 ### Sichuan, China
 <img src="../images/DSC02398-min.png" alt="DSC02398" style="zoom:50%;" /> 
 
