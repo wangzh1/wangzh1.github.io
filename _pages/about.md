@@ -7,13 +7,31 @@ redirect_from:
   - /about/
   - /about.html
 ---
-Hi! I am a junior-year undergraduate in Computer Science at ShanghaiTech University, China. 
+Hi there, I am a final-year undergraduate in Computer Science at ShanghaiTech University, Shanghai, China. And I will be working towards my master's at Southern University of Science and Technology (SUSTech) starting from Fall 2025. 
 
-Currently, I am a visiting student at the University of Wisconsin-Madison.
+Previously, I have spent an amazing year as a visiting student at the University of Wisconsin-Madison.
 
-My research interest includes computational imaging, single photon imaging, computer vision, and machine learning.
+My research interest includes deep learning, computer vision, computational imaging, and medical image analysis.
 
 # Gallery
+
+### Milwaukee, WI
+<img src="../images/milwaukee.jpg" alt="milwaukee" style="zoom:50%;" /> 
+
+### Madison, WI
+<img src="../images/madison1.jpg" alt="madison" style="zoom:50%;" /> 
+
+### Madison, WI
+<img src="../images/madison2.jpg" alt="madison2" style="zoom:50%;" /> 
+
+### Puerto Rico
+<img src="../images/pr2.jpg" alt="pr2" style="zoom:50%;" /> 
+
+### Puerto Rico
+<img src="../images/pr1.jpg" alt="pr1" style="zoom:50%;" /> 
+
+### Milwaukee, WI
+<img src="../images/milwaukee.jpg" alt="milwaukee" style="zoom:50%;" /> 
 
 ### Sichuan, China
 <img src="../images/DSC02398-min.png" alt="DSC02398" style="zoom:50%;" /> 
