@@ -1,0 +1,231 @@
+<!DOCTYPE HTML>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M8K5V8M2Q5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-M8K5V8M2Q5');
+  </script>
+
+  <title>Ziheng Wang</title>
+  
+  <meta name="author" content="Ziheng Wang">
+  <meta name="google-site-verification" content="uJfjJBp5exNsOnfZclkaHBAX9UbHUrcwnzYsy6J9_44" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <link rel="icon" href="images/ziheng.jpg">
+  <meta name="keywords" content="Ziheng Wang">
+
+</head>
+
+<body>
+  <table style="width:100%;max-width:900px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+    <tr style="padding:0px">
+      <td style="padding:0px">
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <tr style="padding:0px">
+            <td style="padding:2.5%;width:63%;vertical-align:middle">
+              <p style="text-align:center">
+                <name>Ziheng Wang 王子衡</name>
+              </p>
+              <p>I am a first-year Ph.D. student in Artificial Intelligence at The Chinese University of Hong Kong, Shenzhen, supervised by <a href="https://scholar.google.com/citations?hl=zh-CN&user=igqPS8sAAAAJ&view_op=list_works&sortby=pubdate">Prof. Qilin Sun</a>.
+              </p>
+              <p>I got my B.Eng. in 2025 at ShanghaiTech University, where I worked with <a href="https://www.yu-jingyi.com/#\">Prof. Jingyi Yu</a> on non-line-of-sight imaging and transient imaging. I spent my junior year as a visiting student at the University of Wisconsin-Madison, working with <a href="https://biostat.wisc.edu/~velten/">Prof. Andreas Velten</a>. Always a Badger🦡!
+              </p>
+              </p>
+              <p style="text-align:center">
+
+                <br/>
+                <a href="mailto:zihengwang3@link.cuhk.edu.cn">Email</a> &nbsp/&nbsp
+                <a href="Documents/resume.pdf">Resume</a>&nbsp/&nbsp
+                <a href="https://scholar.google.com/citations?hl=en&user=GSP6casAAAAJ">Google Scholar</a>&nbsp/&nbsp
+                <a href="https://github.com/wangzh1">GitHub</a>
+
+
+              </p>
+            <td style="padding:2.5%;width:40%;max-width:40%">
+              <figure style="margin:0;text-align:center;">
+                <a href="images/ziheng.jpg">
+                  <img
+                    src="images/ziheng.jpg"
+                    alt="profile photo"
+                    style="width:90%;max-width:90%;"
+                    class="hoverZoomLink">
+                </a>
+                <figcaption style="font-size:0.9em;color:#666;margin-top:4px;">
+                  Shot by Siyuan Shen from ShanghaiTech
+                </figcaption>
+              </figure>
+            </td>
+            
+          </tr>
+
+        </tbody></table>
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+            <td style="padding:20px;width:100%;vertical-align:middle">
+              <heading>Research</heading>
+              <p>
+                I am broadly interested in scene understanding. That is using visual cues to infer properites of objects and scenes. 
+
+              </p>
+            </td>
+          </tr>
+        </tbody></table>
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+
+          <tr>
+            <td style="padding:20px;width:25%;vertical-align:middle">
+              <div class="one">
+                <div class="two" id='nac_image'><video  width=100% height=100% muted autoplay loop>
+                <source src="Figures/invprop.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+                </video></div>
+                <img src='Figures/invprop.png' width="160">
+              </div>
+              <script type="text/javascript">
+                function nac_start() {
+                  document.getElementById('nac_image').style.opacity = "1";
+                }
+      
+                function nac_stop() {
+                  document.getElementById('nac_image').style.opacity = "0";
+                }
+                nac_stop()
+              </script>
+            </td>
+            <td style="padding:20px;width:75%;vertical-align:middle">
+              <a href="https://anaghmalik.com/InvProp">
+                <papertitle>Neural Inverse Rendering from Propagating Light  </papertitle>
+              </a>
+              <br>
+              <strong>Ziheng Wang*</strong>, <a href="https://benattal.github.io/">Benjamin Attal*</a>, <a href="https://andrewxie.com//">Andrew Xie</a>,  <a href="https://www.cs.cmu.edu/~motoole2/">Matthew O'Toole</a>, <a href="https://davidlindell.com/">David B. Lindell</a>
+              <br>
+              <em>CVPR</em>, 2025 &nbsp <font color="red"><strong>(Oral Presentation, Best Student Paper Award 🏆)</strong></font>
+              <br>
+              <a href="https://arxiv.org/abs/2506.08470">[arXiv]</a>
+              
+              <p></p>
+              <p>
+                Time-resolved relighting and geometry estimation through radiance caching.
+              </p>
+            </td>
+          </tr>
+
+          <!-- <tr onmouseout="tnerf_stop()" onmouseover="tnerf_start()" bgcolor="#fbe5ba"> -->
+          <tr>  
+            <td style="padding:20px;width:25%;vertical-align:middle">
+              <div class="one">
+                <div class="two" id='tnerf_image'><video  width=100% height=100% muted autoplay loop>
+                <source src="TransientNeRF/static/videos/final_vids/cinema_5_89.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+                </video></div>
+                <img src='TransientNeRF/static/videos/cinema_5_150000_test89_RGB.png' width="160">
+              </div>
+              <script type="text/javascript">
+                function tnerf_start() {
+                  document.getElementById('tnerf_image').style.opacity = "1";
+                }
+      
+                function tnerf_stop() {
+                  document.getElementById('tnerf_image').style.opacity = "0";
+                }
+                tnerf_stop()
+              </script>
+            </td>
+            <td style="padding:20px;width:75%;vertical-align:middle">
+              <a href="https://wangzh1.github.io/Paper/beam.pdf">
+                <papertitle>BEAM: Boosting Fundus Image Enhancement via Adapted Text-to-Image Models</papertitle>
+              </a>
+              <br>
+              <strong>Ziheng Wang<sup>&dagger;</sup></strong>, Pujin Cheng, Xiaoying Tang
+              <br>
+              <em>MICCAI OMIA Workshop</em>, 2025 &nbsp <font color="red"><strong>(Oral)</strong></font>
+              <br>
+              <a href="https://github.com/wangzh1/BEAM">[code]</a>
+              <p></p>
+              <p>
+              We adapt text-to-image foundation models for medical image enhancement with limited and unpaired data.
+              </p>
+            </td>
+          </tr>
+
+
+          <tr>
+            <td style="padding:20px;width:25%;vertical-align:middle">
+              <div class="one">
+                <div class="two" id='fwp_image'><video  width=100% height=100% muted autoplay loop>
+                <source src="FlyingWithPhotons/media/moving_videos/coke_website_teaser_ours.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+                </video></div>
+                <img src='FlyingWithPhotons/media/scene_pics/coke.png' width="160">
+              </div>
+              <script type="text/javascript">
+                function fwp_start() {
+                  document.getElementById('fwp_image').style.opacity = "1";
+                }
+      
+                function fwp_stop() {
+                  document.getElementById('fwp_image').style.opacity = "0";
+                }
+                fwp_stop()
+              </script>
+            </td>
+            <td style="padding:20px;width:75%;vertical-align:middle">
+              <a href="https://wangzh1.github.io/TransiT/">
+                <papertitle>TransiT: Transient Transformer for Non-line-of-sight Videography</papertitle>
+              </a>
+              <br>
+              Ruiqian Li*, Siyuan Shen*, Suan Xia*, <strong>Ziheng Wang</strong>, Xingyue Peng, Chengxuan Song, Yingsheng Zhu, Tao Wu, <a href="https://vic.shanghaitech.edu.cn/vrvc/en/people/shiying-li/">Shiying Li<sup>&dagger;</sup></a>, <a href="https://www.yu-jingyi.com/#">Jingyi Yu<sup>&dagger;</sup></a>
+              <br>
+              <em>ICCV</em>, 2025
+              <br>
+              <a href="https://wangzh1.github.io/TransiT/">[project page]</a>
+              
+              <a href="http://arxiv.org/abs/2503.11328">[arXiv]</a>
+              
+              <a href="https://github.com/wangzh1/TransiT">[code]</a>
+              <p></p>
+              <p>
+              Real-time non-line-of-sight imaging at 10 FPS.
+              </p>
+            </td>
+          </tr>
+
+        </tbody></table>
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+            <td style="padding:20px;width:100%;vertical-align:middle">
+              <heading>Misc.</heading>
+              <p>
+                I'm new to powerlifting! Bench: 100kg, Squat: 145kg, Deadlift: 160kg @ 77kg. (Updated 2025.08)
+
+              </p>
+            </td>
+          </tr>
+        </tbody></table>
+
+
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <tr>
+            <td style="padding:0px">
+              <br>
+              <p style="text-align:right;font-size:small;">
+                Template stolen from <a href="https://anaghmalik.com/">Anagh Malik's website.</a>
+                <br>
+              </p>
+            </td>
+          </tr>
+        </tbody></table>
+      </td>
+    </tr>
+  </table>
+</body>
+
+</html>
