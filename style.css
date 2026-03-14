@@ -1,0 +1,766 @@
+/* 核心变量系统：支持浅色/深色无缝切换 */
+:root {
+    --bg-color: #f8fafc;
+    --surface-color: #ffffff;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --accent-blue: #2563eb;
+    --accent-blue-dim: rgba(37, 99, 235, 0.1);
+    --power-color: #0ea5e9;
+    --gradient-start: #2563eb;
+    --gradient-end: #0ea5e9;
+    --border-color: rgba(15, 23, 42, 0.1);
+    --nav-bg: rgba(248, 250, 252, 0.9);
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+[data-theme="dark"] {
+    --bg-color: #0f172a;
+    --surface-color: #1e293b;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --accent-blue: #60a5fa;
+    --accent-blue-dim: rgba(96, 165, 250, 0.15);
+    --power-color: #38bdf8;
+    --gradient-start: #60a5fa;
+    --gradient-end: #00f3ff;
+    --border-color: rgba(255, 255, 255, 0.08);
+    --nav-bg: rgba(15, 23, 42, 0.9);
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* ==== 细节 7: 光子漂浮背景样式 ==== */
+#particles-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; 
+    pointer-events: none;
+}
+
+/* 浅色模式下的光子：使用偏深的琥珀金，增强与白底的对比度 */
+.particle {
+    position: absolute;
+    bottom: -20px;
+    background: radial-gradient(circle, #ffcc00 0%, #ff8800 100%);
+    border-radius: 50%;
+    opacity: 0.85; /* 提高基础透明度让实体感更强 */
+    box-shadow: 0 0 10px 2px rgba(255, 136, 0, 0.5); /* 阴影带一点橘色，防止融入白底 */
+    animation: floatUp linear infinite;
+}
+
+/* 深色模式下的光子：耀眼的高亮金黄色 */
+[data-theme="dark"] .particle {
+    background: radial-gradient(circle, #ffffff 0%, #ffd700 70%, #ffaa00 100%);
+    opacity: 0.9;
+    box-shadow: 0 0 18px 5px rgba(255, 215, 0, 0.7); /* 强烈的金色光晕 */
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-120vh);
+        opacity: 0;
+    }
+}
+
+/* 导航栏与主题切换按钮 */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: var(--nav-bg);
+    backdrop-filter: blur(8px);
+    padding: 1.2rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.logo {
+    font-weight: 700;
+    color: var(--text-main);
+    font-size: 1.2rem;
+    letter-spacing: -1px;
+    text-decoration: none;
+}
+
+/* 太阳/月亮切换按钮动画 */
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+    color: var(--text-main);
+}
+.theme-toggle svg {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
+}
+.sun-icon {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+}
+.moon-icon {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.5);
+}
+[data-theme="dark"] .sun-icon {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.5);
+}
+[data-theme="dark"] .moon-icon {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+}
+
+.nav-links a {
+    color: var(--text-main);
+    text-decoration: none;
+    margin-left: 2rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+.nav-links a:hover {
+    color: var(--accent-blue);
+}
+
+/* 容器布局 */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 7rem 2rem 4rem 2rem;
+}
+
+/* 标题样式 */
+h1, h2, h3 {
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+h2 {
+    font-size: 1.75rem;
+    margin: 3.5rem 0 1.5rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+    display: inline-block;
+}
+h2::after {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 3px;
+    background: var(--accent-blue);
+    margin-top: 0.5rem;
+    border-radius: 2px;
+}
+
+/* Hero 区域 */
+#about {
+    position: relative; /* 为光子粒子提供相对定位 */
+}
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    margin-bottom: 3rem;
+}
+
+.hero-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+/* 针对正文段落中的超链接进行美化 */
+p a {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease;
+}
+p a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+p a:hover {
+    color: var(--gradient-end);
+}
+p a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* 照片与社交图标版块 */
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    flex-shrink: 0;
+}
+
+.hero-image-wrapper {
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    padding: 5px;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+[data-theme="dark"] .hero-image-wrapper {
+    box-shadow: 0 0 25px rgba(0, 243, 255, 0.2);
+}
+.hero-image-wrapper:hover {
+    transform: translateY(-5px);
+}
+.hero-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: var(--surface-color);
+    border: 4px solid var(--bg-color);
+}
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+}
+
+/* 社交图标矩阵 */
+.social-icons {
+    display: flex;
+    gap: 1.2rem;
+}
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    transition: all 0.2s ease;
+}
+.social-icons a:hover {
+    border-color: var(--gradient-end);
+    color: var(--gradient-end);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+.social-icons svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.gradient-text {
+    font-size: 3rem;
+    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.typewriter {
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--accent-blue);
+    font-size: 1.15rem;
+    min-height: 1.5em;
+}
+.hero-content p {
+    color: var(--text-muted);
+    max-width: 650px;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.contact-info {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+}
+.contact-info a {
+    display: flex;
+    align-items: center;
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+.contact-info a svg {
+    margin-right: 8px;
+    fill: var(--text-muted);
+    transition: fill 0.2s;
+}
+.contact-info a:hover {
+    color: var(--accent-blue);
+}
+/* 邮箱高亮强调样式 */
+.contact-info a.email-link {
+    font-size: 0.9rem; /* 整体字号调大 */
+}
+
+.email-code {
+    font-family: 'Courier New', Courier, monospace; /* 浓厚的CS代码/学术风格字体 */
+    font-weight: 700; /* 加粗 */
+    background: var(--accent-blue-dim); /* 加上极简的半透明背景底色块 */
+    color: var(--accent-blue); /* 字体颜色使用强调蓝 */
+    padding: 0.2rem 0.6rem; /* 增加一点内边距让它看起来像个专属标签 */
+    border-radius: 6px; /* 圆角设计 */
+    letter-spacing: 0.5px; /* 稍微拉开字母间距，增强辨识度 */
+    transition: all 0.3s ease;
+}
+
+/* 鼠标悬停时产生反色的高级交互感 */
+.contact-info a.email-link:hover .email-code {
+    background: var(--gradient-end);
+    color: var(--surface-color); 
+    box-shadow: 0 4px 10px rgba(14, 165, 233, 0.3); /* 微微的悬浮阴影 */
+}
+/* 教育经历轴 */
+.timeline {
+    border-left: 2px solid var(--border-color);
+    padding-left: 2rem;
+    margin-left: 0.5rem;
+}
+.timeline-item {
+    position: relative;
+    margin-bottom: 2.5rem;
+}
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2.35rem;
+    top: 0.4rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--bg-color);
+    border: 2px solid var(--gradient-start);
+}
+.timeline-date {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0.4rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+.timeline-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+.timeline-subtitle {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-top: 0.4rem;
+    display: flex;
+    align-items: center; 
+    gap: 8px; 
+}
+.uni-logo {
+    height: 27px; 
+    width: auto;
+    border-radius: 2px; 
+    object-fit: contain;
+}
+
+/* News 列表 */
+.news-list {
+    list-style: none;
+}
+.news-list li {
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+.news-date {
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--gradient-start);
+    flex-shrink: 0;
+    min-width: 90px;
+    font-weight: 600;
+}
+.news-content {
+    color: var(--text-main);
+}
+
+/* 标题和备注的响应式弹性布局 */
+.section-header-flex {
+    display: flex;
+    align-items: baseline; /* 确保右侧小字和左侧主标题的文字底端对齐 */
+    justify-content: space-between; /* 把标题推到左边，备注推到右边 */
+    flex-wrap: wrap; /* 手机屏幕较窄时自动换行 */
+    gap: 1rem;
+}
+
+/* 备注小字的样式 */
+.pub-note {
+    font-size: 0.85rem;
+    color: var(--text-muted); /* 使用柔和的次要文本颜色 */
+    font-family: 'Courier New', Courier, monospace; /* 使用代码字体增加学术感 */
+}
+/* 论文卡片 */
+.pub-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+}
+
+.pub-card {
+    background: var(--surface-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column; 
+    gap: 1.5rem;
+}
+
+/* ==== BibTeX 小窗口 (Modal) 样式 ==== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+.bibtex-modal {
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transform: translateY(20px);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+}
+.modal-overlay.active .bibtex-modal {
+    transform: translateY(0);
+}
+.bibtex-modal h3 {
+    margin-bottom: 1rem;
+    color: var(--text-main);
+    font-size: 1.2rem;
+}
+.bibtex-modal pre {
+    background: var(--bg-color);
+    padding: 1rem;
+    border-radius: 6px;
+    overflow-x: auto;
+    color: var(--text-muted);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    border: 1px solid var(--border-color);
+}
+.close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.close-modal:hover {
+    color: var(--gradient-end);
+}
+.copy-btn {
+    margin-top: 1.2rem;
+    padding: 0.5rem 1.2rem;
+    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: opacity 0.2s;
+}
+.copy-btn:hover {
+    opacity: 0.85;
+}
+@media (min-width: 768px) {
+    .pub-card {
+        flex-direction: row; 
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+.pub-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--gradient-start);
+}
+.pub-info {
+    flex: 1; 
+}
+.pub-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+}
+.pub-authors {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 0.8rem;
+}
+.pub-authors strong {
+    color: var(--text-main);
+    font-weight: 600;
+}
+.pub-venue {
+    display: inline-block;
+    background: var(--accent-blue-dim);
+    color: var(--gradient-start);
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* ==== 细节 4: 论文胶囊按钮 ==== */
+.pub-badges {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+.pub-badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-family: 'Courier New', Courier, monospace;
+}
+.pub-badge:hover {
+    border-color: var(--gradient-end);
+    color: var(--gradient-end);
+    background: var(--accent-blue-dim);
+}
+
+/* Teaser 图片容器 */
+.pub-teaser {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@media (min-width: 768px) {
+    .pub-teaser {
+        width: 220px; 
+        flex-shrink: 0;
+    }
+}
+.pub-teaser img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    object-fit: contain;
+    cursor: pointer; 
+    transition: transform 0.3s ease;
+}
+.pub-teaser img:hover {
+    transform: scale(1.05);
+}
+
+/* Lightbox 遮罩层 */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.85); 
+    backdrop-filter: blur(5px); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease; 
+}
+.lightbox.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transform: scale(0.8); 
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+}
+.lightbox.active img {
+    transform: scale(1);
+}
+
+/* Misc. 区域 (力量举) */
+.misc-section {
+    margin-top: 4rem;
+    background: var(--surface-color);
+    padding: 2.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+}
+.misc-header {
+    margin-bottom: 2rem;
+}
+.misc-header h2 {
+    margin: 0 0 0.5rem 0;
+    border: none;
+}
+.misc-header h2::after {
+    display: none;
+}
+.misc-subtitle {
+    color: var(--gradient-start);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95rem;
+}
+.skill-bar {
+    margin-bottom: 1.5rem;
+}
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+.skill-progress {
+    width: 100%;
+    height: 6px;
+    background: var(--border-color);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+/* ==== 细节 6: CSS 初始化宽度为 0，交由 JS 控制 ==== */
+.skill-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+    border-radius: 3px;
+    width: 0; /* 默认 0 */
+    transition: width 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* ==== 细节 5: Footer 页脚样式 ==== */
+footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* 响应式布局 */
+@media (max-width: 850px) {
+    .hero-container {
+        flex-direction: column-reverse;
+        text-align: left;
+        gap: 2.5rem;
+    }
+    .profile-section {
+        margin: 0 auto;
+    }
+    .contact-info {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    .nav-links {
+        display: none; 
+    }
+    .news-list li {
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+}
