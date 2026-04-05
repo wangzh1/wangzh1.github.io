@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ziheng Wang</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ziheng Wang</title>
+        
+        <script>
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+        </script>
+    
+        <link rel="stylesheet" href="style.css">
+    </head>
 <body>
 
     <nav>
@@ -43,11 +49,11 @@
             
             <div class="hero-container">
                 <div class="hero-content">
-                    <h1 class="gradient-text">Ziheng Wang 王子衡</h1>
+                    <h1 class="gradient-text">Ziheng Wang</h1>
                     <div class="typewriter" id="typewriter"></div>
                     <p>I am a first-year Ph.D. student in the School of Artificial Intelligence at The Chinese University of Hong Kong, Shenzhen (CUHK-Shenzhen), supervised by <a href="https://sds.cuhk.edu.cn/en/teacher/489">Prof. Qilin Sun</a>. I also work closely with <a href="https://faculty.sist.shanghaitech.edu.cn/yujingyi/">Prof. Jingyi Yu</a>.
                     </p>
-                    <p>Previously, I got my Bachelor's from ShanghaiTech University, where I worked with <a href="https://faculty.sist.shanghaitech.edu.cn/yujingyi/">Prof. Jingyi Yu</a> on non-line-of-sight imaging and transient imaging. I spent my junior year as a visiting student at the University of Wisconsin-Madison, working with <a href="https://biostat.wisc.edu/~velten/">Prof. Andreas Velten</a>. Always a Badger🦡!
+                    <p>Previously, I got my Bachelor's from ShanghaiTech University, where I worked with <a href="https://faculty.sist.shanghaitech.edu.cn/yujingyi/">Prof. Jingyi Yu</a> on non-line-of-sight imaging and transient imaging. I spent my junior year as a visiting student at the University of Wisconsin-Madison, working with <a href="https://biostat.wisc.edu/~velten/">Prof. Andreas Velten</a>. Always a badger🦡!
                     </p>
                     <div class="contact-info">
                         <a href="javascript:void(0);" class="email-link">
@@ -77,9 +83,9 @@
                         <a href="https://github.com/wangzh1" target="_blank" title="GitHub">
                             <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                         </a>
-                        <a href="Documents/resume.pdf" target="_blank" title="CV">
+                        <!-- <a href="Documents/resume.pdf" target="_blank" title="CV">
                             <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v6h6v10H6z"/><path d="M8 12h8v2H8zm0 4h5v2H8z"/></svg>
-                        </a>
+                        </a> -->
                     </div>
                 </div>
             </div>
@@ -93,7 +99,7 @@
                     <div class="timeline-title">Ph.D. in Artificial Intelligence</div>
                     <div class="timeline-subtitle">
                         <img src="images/cuhksz.png" alt="CUHK-Shenzhen Logo" class="uni-logo">
-                        <span>The Chinese University of Hong Kong, Shenzhen | Advisor: Prof. Qilin Sun</span>
+                        <span>The Chinese University of Hong Kong, Shenzhen</span>
                     </div>
                 </div>
 
@@ -102,7 +108,7 @@
                     <div class="timeline-title">B.Eng. in Computer Science</div>
                     <div class="timeline-subtitle">
                         <img src="images/shanghaitech.png" alt="ShanghaiTech Logo" class="uni-logo">
-                        <span>ShanghaiTech University | Advisor: Prof. Jingyi Yu</span>
+                        <span>ShanghaiTech University</span>
                     </div>
                 </div>
 
@@ -120,17 +126,17 @@
         <section id="news">
             <h2>News</h2>
             <ul class="news-list">
-                <li>
+                <!-- <li>
                     <span class="news-date">Mar 2026</span>
                     <span class="news-content">Excited to announce our paper on non-line-of-sight videography, TransiT, has been accepted to ICCV 2025!</span>
                 </li>
                 <li>
-                    <span class="news-date">Jan 2026</span>
+                    <span class="news-date">Mar 2026</span>
                     <span class="news-content">New preprint MARMOT is out. Check out our masked autoencoder approach for transient imaging.</span>
-                </li>
+                </li> -->
                 <li>
                     <span class="news-date">Sep 2025</span>
-                    <span class="news-content">Started my Ph.D. journey at CUHK-Shenzhen working with Prof. Qilin Sun.</span>
+                    <span class="news-content">Started my Ph.D. at CUHK-Shenzhen.</span>
                 </li>
             </ul>
         </section>
@@ -163,19 +169,19 @@
                         <div class="pub-venue">ACM Transactions on Graphics (TOG) & SIGGRAPH 2026</div> 
                         
                         <div class="pub-badges">
-                            <a href="#" class="pub-badge">PDF</a>
-                            <a href="#" class="pub-badge">Code</a>
+                            <a href="#" class="pub-badge">Paper</a>
+                            <a href="https://github.com/wangzh1/GenPIE" class="pub-badge" target="_blank">Code</a>
                             <a href="#" class="pub-badge">Video</a>
                             
                             <a href="javascript:void(0);" class="pub-badge bibtex-toggle">BibTeX</a>
                             
                             <pre class="bibtex-data" style="display: none;">
-@article{wang2026genpie,
+<!-- @article{wang2026genpie,
     title={GenPIE: A Time-Resolved Plenoptic Imager},
     author={Wang, Ziheng and Shen, Siyuan and Xu, Huanyu and Qiao, Kaichun and Zhang, Longwen and Zhang, Qixuan and Sun, Qilin and Li, Shiying and Yu, Jingyi},
     journal={SIGGRAPH 2026 \& ACM TOG},
     year={2026}
-}
+} -->
                             </pre>
                         
                         </div>
@@ -191,7 +197,7 @@
                         <div class="pub-authors">Siyuan Shen*, <strong>Ziheng Wang*</strong>, Xingyue Peng, Suan Xia, Ruiqian Li, Shiying Li<sup>&dagger;</sup>, and Jingyi Yu<sup>&dagger;</sup></div>
                         <div class="pub-venue">Preprint</div>
                         <div class="pub-badges">
-                            <a href="#" class="pub-badge">arXiv</a>
+                            <a href="https://arxiv.org/pdf/2506.08470" class="pub-badge" target="_blank">arXiv</a>
                             <a href="#" class="pub-badge">Code</a>
                         </div>
                     </div>
@@ -206,8 +212,27 @@
                         <div class="pub-authors"><strong>Ziheng Wang<sup>&dagger;</sup></strong>, Pujin Cheng, and Xiaoying Tang</div>
                         <div class="pub-venue">MICCAI 2025 OMIA Workshop (Oral)</div>
                         <div class="pub-badges">
-                            <a href="#" class="pub-badge">PDF</a>
-                            <a href="#" class="pub-badge">Slides</a>
+                            <a href="Paper/beam.pdf" class="pub-badge" target="_blank">Paper</a>
+                            <a href="https://github.com/wangzh1/BEAM" class="pub-badge" target="_blank">Code</a>
+                            <a href="javascript:void(0);" class="pub-badge bibtex-toggle">BibTeX</a>
+                            
+                            <pre class="bibtex-data" style="display: none;">
+@inproceedings{wang2025beam,
+    author = {Wang, Ziheng and Cheng, Pujin and Tang, Xiaoying},
+    title = {BEAM: Boosting Fundus Image Enhancement via Adapted Text-to-Image Models},
+    year = {2025},
+    isbn = {978-3-032-10350-5},
+    publisher = {Springer-Verlag},
+    address = {Berlin, Heidelberg},
+    url = {https://doi.org/10.1007/978-3-032-10351-2_2},
+    doi = {10.1007/978-3-032-10351-2_2},
+    booktitle = {Ophthalmic Medical Image Analysis: 12th International Workshop, OMIA 2025, Held in Conjunction with MICCAI 2025, Daejeon, South Korea, September 27, 2025, Proceedings},
+    pages = {11–20},
+    numpages = {10},
+    keywords = {Fundus Image Enhancement, Text-to-Image Models, Diffusion Models},
+    location = {Daejeon, Korea (Republic of)}
+}
+                            </pre>
                         </div>
                     </div>
                     <div class="pub-teaser">
@@ -221,8 +246,21 @@
                         <div class="pub-authors">Ruiqian Li*, Siyuan Shen*, Suan Xia*, <strong>Ziheng Wang</strong>, Xingyue Peng, Yingsheng Zhu, Chengxuan Song, Shiying Li, and Jingyu Yu<sup>&dagger;</sup></div>
                         <div class="pub-venue">ICCV 2025</div>
                         <div class="pub-badges">
-                            <a href="#" class="pub-badge">PDF</a>
-                            <a href="#" class="pub-badge">Code</a>
+                            <a href="https://wangzh1.github.io/TransiT/" class="pub-badge" target="_blank">Project Page</a>
+                            <a href="Paper/transit.pdf" class="pub-badge">Paper</a>
+                            <a href="https://github.com/wangzh1/TransiT" class="pub-badge" target="_blank">Code</a>
+                            <a href="https://huggingface.co/datasets/alanzw8/TransVerse/tree/main" class="pub-badge" target="_blank">Dataset</a>
+                            <a href="javascript:void(0);" class="pub-badge bibtex-toggle">BibTeX</a>
+                            
+                            <pre class="bibtex-data" style="display: none;">
+@inproceedings{li2025transit,
+    title={TransiT: Transient Transformer for Non-line-of-sight Videography},
+    author={Li, Ruiqian and Shen, Siyuan and Xia, Suan and Wang, Ziheng and Peng, Xingyue and Song, Chengxuan and Zhu, Yingsheng and Wu, Tao and Li, Shiying and Yu, Jingyi},
+    booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+    pages={27542--27551},
+    year={2025}
+}
+                            </pre>
                         </div>
                     </div>
                     <div class="pub-teaser">
@@ -235,7 +273,7 @@
         <section id="misc" class="misc-section">
             <div class="misc-header">
                 <h2>Misc.</h2>
-                <div class="misc-subtitle">> Fun fact: I'm a powerlifting lover!</div>
+                <div class="misc-subtitle">> Fun fact: I'm a powerlifting lover! Last updated: 2026.02</div>
             </div>
             
             <div class="skill-bar">
